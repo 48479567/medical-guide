@@ -1,0 +1,37 @@
+<div class="fx-cc main-content">
+  <div>
+    <div class="header">
+      <h3>{{ inmunization.title }}</h3>
+    </div>
+    <div class="content">
+      <div>
+        <h4>Type:</h4>
+        <p>{{ inmunization.kind }}</p>
+        <h4>Description:</h4>
+        <p>{{ inmunization.description }}</p>
+        <h4>Composition:</h4>
+        <h5>{{ inmunization.composition.subtitle }}</h5>
+        <ul>
+          <li *ngFor="let compound of inmunization.composition.list">
+            {{ compound }}
+          </li>
+        </ul>
+        <h6>Type: {{ inmunization.composition.type }}</h6>
+        <h4>Type:</h4>
+        <p>{{ inmunization.kind }}</p>
+        <h4>Type:</h4>
+        <p>{{ inmunization.kind }}</p>
+        <h4>Type:</h4>
+        <p>{{ inmunization.kind }}</p>
+        <h4>Type:</h4>
+        <p>{{ inmunization.kind }}</p>
+        <h4>Type:</h4>
+        <p>{{ inmunization.kind }}</p>
+        <h4>Type:</h4>
+        <p>{{ inmunization.kind }}</p>
+        <h4>Type:</h4>
+        <p>{{ inmunization.kind }}</p>
+      </div>
+    </div>
+  </div>
+</div>

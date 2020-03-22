@@ -1,0 +1,20 @@
+<div class="fx-cc">
+  <mat-calendar 
+    [dateClass]="dateClass"
+    (selectedChange)="onSelectChange(setLocale($event))"></mat-calendar>
+  <div class="event-view">
+    <h3>Registro de Temperatura</h3>
+    <p>Fecha Seleccionada: {{ selectedDate }}</p>
+    <ng-container *ngIf="selectCalendar; else nothingEvent;">
+      <div class="content-image">
+        <img [src]="selectCalendar.image" alt="event image" />
+      </div>
+    </ng-container>
+    <ng-template #nothingEvent>
+      <h4>No Existe Evento en esta Fecha</h4>
+      <div class="content-image">
+        <img src="https://i.imgur.com/8OzHGey.png" alt="nothing event Image" />
+      </div>
+    </ng-template>
+  </div>
+</div>
