@@ -1,0 +1,8 @@
+<div [formGroup]="form">
+  <mat-radio-group [formControlName]="controlName">
+    <mat-radio-button *ngFor="let rb of radioButtons"
+      [value]="rb.value"
+    >{{ rb.key | titlecase }}</mat-radio-button>
+  </mat-radio-group>
+  <mat-error>{{ errorMessage }}</mat-error>
+</div>

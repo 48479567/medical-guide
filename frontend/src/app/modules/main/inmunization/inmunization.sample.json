@@ -1,0 +1,70 @@
+{
+  "_id": "5e7461557361610017dc5bbf",
+  "selector": "bcg",
+  "title": "Vacuna BGC: Bacilo de Calmete - Guérin",
+  "group": 1,
+  "kind": "Vacuna viva atenuada",
+  "description": [
+    "Vacuna preparada por cultivo en medio liquido del Bacilo de Calmette-Guérin (BCG), que corresponde a una cepa del Mycobacterium bovis atenuada, preparada a partir de una cepa estándar suministrada anualmente por el Instituto Pasteur de Paris."
+  ],
+  "composition": {
+    "subtitle": "Cada dosis de 0.1 ml contiene:",
+    "list": [
+      "1x105 del bacilo de Calmette- Guérin.",
+      "33 x 105 C.F.U reconstituida con cloruro de sodio."
+    ],
+    "type": "Vacuna Monodosis"
+  },
+  "presentation": [
+    "Frasco de 10/5dosis (0.5 ml) más diluyente.",
+    "Frasco de 20/10dosis (1 ml) más diluyente.",
+    "Jeringa descartable de 1 cc con aguja 27G x 1/2\" auto retráctil."
+  ],
+  "indications": [
+    "Prevenir las formas clínicas graves de la tuberculosis infantil: meningitis tuberculosa y diseminada."
+  ],
+  "scheme": [
+    {
+      "condition": "Recién nacidos (0-28 días), con peso igual o mayor de 2000 gr.",
+      "applications": [
+        "Prioritariamente dentro de las primeras 12 horas de nacido o durante el primer año de vida si no recibió la vacuna. "
+      ]
+    },
+    {
+      "condition": "De 1 a 5 años ",
+      "applications": [
+        "previo descarte de infección por tuberculosis."
+      ]
+    }
+  ],
+  "dose": [
+    "0.05 ml o 0.1 ml (según consideraciones del laboratorio productor)."
+  ],
+  "conservation": [
+    "2°C a +8°C",
+    "Una vez reconstituida, su tiempo de conservación del frasco abierto es de 6 horas."
+  ],
+  "administration": {
+    "subtitle": "Via intradérmica",
+    "list": [
+      "en la región del músculo deltoides del brazo derecho a 2 cm del acromion o Vértice del Hombro"
+    ]
+  },
+  "sideEffects": [
+    {
+      "subtitle": "General",
+      "list": [
+        "Días después de la vacunación puede desarrollarse un nódulo de induración en el sitio de la inyección, que disminuye gradualmente y es reemplazado por una lesión local que puede ulcerarse semanas más tarde.",
+        "Esta lesión local no requiere tratamiento."
+      ]
+    }
+  ],
+  "contraindications": [
+    "Recién nacidos con un peso inferior a 2,000 gr.",
+    "Enfermedades infecciosas (en especial sarampión y varicela), debiendo esperar 1 mes de infecciones para su aplicación.",
+    "Reacciones dermatológicas severas en el área de aplicación.",
+    "Inmunodeficiencias."
+  ],
+  "simultaneousUse": "Se puede aplicar simultáneamente con cualquier otra vacuna ya sean estas virales o bacterianas.",
+  "__v": 0
+}

@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Welcome</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <app-textbox-control
+        class="username"
+        controlName="username"
+        label="username"
+        [form]="form"
+        type="email"
+        [required]="true"
+        matIconSuffix="person"
+        errorMessage="Invalid Username"
+      ></app-textbox-control>
+      <app-textbox-control
+        controlName="password"
+        label="password"
+        [type]="passwordData.type"
+        [form]="form"
+        [required]="true"
+        errorMessage="Invalid Password"
+        [matIconButtonSuffix]="passwordData.icon"
+        (clickButtonSuffix)="changePasswordData()"
+      ></app-textbox-control>
+
+    </form>
+  </mat-card-content>
+  <mat-card-actions class="space-around">
+    <a routerLink="./signup">Create account</a>
+    <button
+      type="submit"
+      mat-raised-button
+      color="accent"
+      [disabled]="!form.valid"
+      (click)="login()"
+      >LOGIN</button>
+
+  </mat-card-actions>
+</mat-card>

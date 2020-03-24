@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IContainerChildLink, IChildLink } from 'src/app/shared/models/route.model';
+import { IContainerChildLink, IChildLink } from '../../../shared/models/route.model';
 
 @Component({
   selector: 'app-inmunization',

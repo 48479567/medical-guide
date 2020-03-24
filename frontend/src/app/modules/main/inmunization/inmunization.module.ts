@@ -6,6 +6,9 @@ import { SharedModule } from '../../../shared/shared.module';
 import { InmunizationListComponent } from './inmunization-list/inmunization-list.component';
 import { InmunizationDetailComponent } from './inmunization-detail/inmunization-detail.component';
 import { InmunizationCreateComponent } from './inmunization-create/inmunization-create.component';
+import {
+  InmunizationDetailDialogComponent
+} from './inmunization-detail/inmunization-detail.dialog.component';
 
 
 @NgModule({
@@ -13,11 +16,15 @@ import { InmunizationCreateComponent } from './inmunization-create/inmunization-
     InmunizationComponent,
     InmunizationListComponent,
     InmunizationDetailComponent,
+    InmunizationDetailDialogComponent,
     InmunizationCreateComponent
   ],
   imports: [
     SharedModule,
     InmunizationRoutingModule,
+  ],
+  entryComponents: [
+    InmunizationDetailDialogComponent
   ]
 })
 export class InmunizationModule { }

@@ -1,0 +1,36 @@
+<div [formGroup]="form" [className]="className">
+  <mat-form-field appearance="outline">
+    <mat-label>{{ label | titlecase }}</mat-label>
+    <span matPrefix *ngIf="matPrefix">{{ matPrefix }}</span>
+    <span matPrefix *ngIf="matIconPrefix">
+      <mat-icon>{{ matIconPrefix }}</mat-icon></span>
+    <button
+      *ngIf="matIconButtonPrefix"
+      mat-button matPrefix mat-icon-button aria-label="prefix"
+      (click)="onClickButtonPrefix()">
+      <mat-icon>{{ matIconButtonPrefix }}</mat-icon>
+    </button>
+    <input
+      matInput
+      autocomplete="off"
+      [type]="type"
+      [placeholder]="placeholder"
+      [required]="required"
+      [max]="max"
+      [min]="min"
+      [attr.disabled]="true"
+      [formControlName]="controlName" />
+    <span matSuffix *ngIf="matSuffix">{{ matSuffix }}</span>
+    <span matSuffix *ngIf="matIconSuffix">
+      <mat-icon>{{ matIconSuffix }}</mat-icon></span>
+    <button
+      *ngIf="matIconButtonSuffix"
+      mat-button matSuffix mat-icon-button aria-label="suffix"
+      (click)="onClickButtonSuffix()">
+      <mat-icon>{{ matIconButtonSuffix }}</mat-icon>
+    </button>
+    <mat-hint align="start">{{ matHintStart }}</mat-hint>
+    <mat-hint align="end">{{ matHintEnd }}</mat-hint>
+    <mat-error>{{ errorMessage }}</mat-error>
+  </mat-form-field>
+</div>

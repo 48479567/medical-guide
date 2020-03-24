@@ -6,6 +6,10 @@
         routerLinkActive="link-active">Inmunization</a>
       <a mat-button [routerLink]="'/main/temperature'"
         routerLinkActive="link-active">Temperature</a>
+      <a mat-button routerLink="/main/auth" class="right">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </a>
     </div>
     <mat-divider></mat-divider>
     <div class="child-menu">
@@ -22,5 +26,6 @@
   </div>
 </div>
 <mat-card class="main-content-header">
+  <div class="backgrond"></div>
   <router-outlet (activate)="getChildLinks($event)"></router-outlet>
 </mat-card>

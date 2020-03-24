@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { InmunizationService } from 'src/app/core/services/inmunization.service';
-import { InmunizationHttpService } from 'src/app/core/http/inmunization.http.service';
-import { IInmunization } from 'src/app/shared/models';
-import { ColorService } from 'src/app/core/services/styles/color.service';
+import { InmunizationService } from '../../../../core/services/inmunization.service';
+import { InmunizationHttpService } from '../../../../core/http/inmunization.http.service';
+import { IInmunization } from '../../../../shared/models';
+import { ColorService } from '../../../../core/services/styles/color.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-inmunization-list',
   templateUrl: './inmunization-list.component.html',
-  styleUrls: ['./inmunization-list.component.sass']
+  styleUrls: ['./inmunization-list.component.sass'],
 })
 export class InmunizationListComponent implements OnInit {
   public inmunizations$: Observable<IInmunization[]>;
@@ -20,7 +22,8 @@ export class InmunizationListComponent implements OnInit {
     private inmunizationService: InmunizationService,
     private inmunizationHttpService: InmunizationHttpService,
     private router: Router,
-    public colorService: ColorService
+    public colorService: ColorService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {

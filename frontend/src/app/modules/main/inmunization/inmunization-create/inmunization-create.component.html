@@ -1,4 +1,206 @@
-<form [formGroup]="inmunizationForm" (ngSubmit)="submitInmunization()">
-  <textarea formControlName="inmunization"></textarea>
-  <button mat-raised-button color="primary" type="submit">Send</button>
+<h2>Create Inmunization</h2>
+
+<form [formGroup]="inmunizationForm"
+  (ngSubmit)="submitInmunization()">
+  <mat-form-field appearance="outline" class="w-10">
+    <mat-label>Selector</mat-label>
+    <input  type="text" matInput
+      formControlName="selector" required maxlength="4"/>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="w-90">
+    <mat-label>Title</mat-label>
+    <input type="text" matInput
+      formControlName="title" required />
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="w-10">
+    <mat-label>Group</mat-label>
+    <input
+      type="number" matInput
+      formControlName="group" required />
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="w-90">
+    <mat-label>Type</mat-label>
+    <input type="text" matInput
+      formControlName="kind" required />
+  </mat-form-field>
+  <div class="fx-cc">
+    <h3>Description</h3>
+    <app-form-array
+      [formArray]="fs.getArrCtrl('description')"
+      formArrayName="description"
+      [canAdd]="true"
+      [formGroup]="inmunizationForm">
+    </app-form-array>
+  </div>
+  <div formGroupName="composition" class="mat-elevation-z2">
+    <h3>Composition</h3>
+    <mat-form-field appearance="outline">
+      <mat-label>Subtitle</mat-label>
+      <input type="text" matInput
+        formControlName="subtitle" required />
+    </mat-form-field>
+    <div class="fx-cc">
+      <h4>List</h4>
+      <app-form-array
+        [formArray]="fs.getArrCtrl('list', fs.getGrpCtrl('composition'))"
+        formArrayName="list"
+        [canAdd]="true" 
+        [formGroup]="fs.getGrpCtrl('composition')">
+      </app-form-array>
+    </div>
+    <h4>Type</h4>
+    <mat-form-field appearance="outline">
+      <mat-label>Type</mat-label>
+      <input type="text" matInput
+        formControlName="type" required />
+    </mat-form-field>
+  </div>
+  <div class="fx-cc">
+    <h3>Presentation</h3>
+    <app-form-array 
+      [formArray]="fs.getArrCtrl('presentation')" 
+      formArrayName="presentation" 
+      [canAdd]="true"
+      [formGroup]="inmunizationForm">
+    </app-form-array>
+  </div>
+  <div class="fx-cc">
+    <h3>Indications</h3>
+    <app-form-array 
+      [formArray]="fs.getArrCtrl('indications')" 
+      formArrayName="indications" 
+      [canAdd]="true"
+      [formGroup]="inmunizationForm">
+    </app-form-array>
+  </div>
+  <div formArrayName="scheme" 
+    class="array-object-container mat-elevation-z2">
+    <h3>Schemes</h3>
+    <div *ngFor="let ctrl of scheme.controls; index as i" 
+      class="content-array-control">
+      <button mat-icon-button (click)="deleteGroupControl(scheme, i)">
+        <mat-icon>clear</mat-icon>
+      </button>
+      <div [formGroupName]="i" class="mat-elevation-z4">
+        <h4>Condition</h4>
+        <mat-form-field appearance="outline">
+          <mat-label>condition</mat-label>
+          <input type="text" matInput 
+            formControlName="condition" required />
+        </mat-form-field>
+        <div class="fx-cc">
+          <h4>Applications</h4>
+          <app-form-array 
+            [formArray]="fs.getArrCtrl('applications', ctrl)" 
+            formArrayName="applications" 
+            [canAdd]="true"
+            [formGroup]="ctrl">
+          </app-form-array>
+        </div>
+        <h4>Additional</h4>
+        <mat-form-field appearance="outline">
+          <mat-label>additional</mat-label>
+          <input type="text" matInput 
+            formControlName="additional" required />
+        </mat-form-field>
+      </div>
+    </div>
+    <button type="button" mat-button 
+      (click)="fs.addGroupControl(scheme, groupScheme())"
+      >Add Scheme</button>
+  </div>
+  <div class="fx-cc">
+    <h3>Dose</h3>
+    <app-form-array 
+      [formArray]="fs.getArrCtrl('dose')" 
+      formArrayName="dose" 
+      [canAdd]="true"
+      [formGroup]="inmunizationForm">
+    </app-form-array>
+  </div>
+  <div class="fx-cc">
+    <h3>Conservation</h3>
+    <app-form-array 
+      [formArray]="fs.getArrCtrl('conservation')" 
+      formArrayName="conservation" 
+      [canAdd]="true"
+      [formGroup]="inmunizationForm">
+    </app-form-array>
+  </div>
+  <div formGroupName="administration" class="mat-elevation-z2">
+    <h3>Administration</h3>
+    <mat-form-field appearance="outline">
+      <mat-label>Subtitle</mat-label>
+      <input type="text" matInput 
+        formControlName="subtitle" required />
+    </mat-form-field>
+    <div class="fx-cc">
+      <h4>List of Administration</h4>
+      <app-form-array 
+        [formArray]="fs.getArrCtrl('list', fs.getGrpCtrl('administration'))" 
+        formArrayName="list"
+        [canAdd]="true" 
+        [formGroup]="fs.getGrpCtrl('administration')"></app-form-array>
+    </div>
+  </div>
+  <div formArrayName="sideEffects" 
+    class="array-object-container mat-elevation-z2">
+    <h3>Side Effects</h3>
+    <div *ngFor="let ctrl of sideEffects.controls; index as i"
+      class="content-array-control">
+      <button mat-icon-button (click)="deleteGroupControl(sideEffects, i)">
+        <mat-icon>clear</mat-icon>
+      </button>
+      <div [formGroupName]="i" class="mat-elevation-z4">
+        <h4>Side Effect Subtitle</h4>
+        <mat-form-field appearance="outline">
+          <mat-label>Subtitle</mat-label>
+          <input type="text" matInput 
+            formControlName="subtitle" required />
+        </mat-form-field>
+        <div class="fx-cc">
+          <h4>List of Side Effects</h4>
+          <app-form-array 
+            [formArray]="fs.getArrCtrl('list', ctrl)" 
+            formArrayName="list" 
+            [canAdd]="true"
+            [formGroup]="ctrl">
+          </app-form-array>
+        </div>
+      </div>
+    </div>
+    <button type="button" mat-raised-button color="accent"
+      (click)="fs.addGroupControl(sideEffects, groupSideEffects())"
+      >Add Side Effect</button>
+  </div>
+  <div class="fx-cc">
+    <h3>Contraindications</h3>
+    <app-form-array
+      [formArray]="fs.getArrCtrl('contraindications')" 
+      formArrayName="contraindications" 
+      [canAdd]="true"
+      [formGroup]="inmunizationForm">
+    </app-form-array>
+  </div>
+  <h3>Simultaneous Use</h3>
+  <mat-form-field appearance="outline">
+    <mat-label>Simultaneous Use</mat-label>
+    <input type="text" matInput 
+      formControlName="simultaneousUse" required />
+  </mat-form-field>
+  <div class="fx">
+    <button
+      type="button"
+      mat-raised-button 
+      class="btn-preview"
+      color="accent"
+      (click)="openDialogPreview()">
+      <mat-icon>all_out</mat-icon>
+      Preview
+    </button>
+    <button type="submit" mat-raised-button 
+      color="primary"
+      [disabled]="!inmunizationForm.valid"
+      >Create Inmunization</button>
+  </div>
 </form>

@@ -10,10 +10,11 @@ export interface ICompositionInmunization extends IAdministrationInmunization {
 export interface ISchemeInmunization {
   condition: string;
   applications: string[];
-  additional: string;
+  additional?: string;
 }
 
 export interface IInmunization {
+  _id?: string;
   selector: string;
   title: string;
   group: number;
@@ -24,10 +25,10 @@ export interface IInmunization {
   indications: string[];
   scheme: ISchemeInmunization[];
   dose: string[];
-  conservation: string;
+  conservation: string[];
   administration: IAdministrationInmunization;
   sideEffects: IAdministrationInmunization[];
-  constraindications: string[];
+  contraindications: string[];
   simultaneousUse: string;
-  pediatric?: ICompositionInmunization;
+  __v?: number;
 }

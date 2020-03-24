@@ -4,11 +4,33 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 
+import {
+  DateControlComponent,
+  CheckboxControlComponent,
+  FileControlComponent,
+  RadioControlComponent,
+  SelectControlComponent,
+  SubmitControlComponent,
+  TextareaControlComponent,
+  TextboxControlComponent,
+  TextboxNumberControlComponent,
+  FormArrayComponent
+} from './components';
+
+const COMPONENTS = [
+  FormArrayComponent,
+  DateControlComponent,
+  CheckboxControlComponent,
+  FileControlComponent,
+  RadioControlComponent,
+  SelectControlComponent,
+  SubmitControlComponent,
+  TextareaControlComponent,
+  TextboxNumberControlComponent,
+  TextboxControlComponent
+];
 
 const PIPES = [
-
-];
-const COMPONENTS = [
 
 ];
 const DIRECTIVES = [
@@ -16,7 +38,11 @@ const DIRECTIVES = [
 ];
 
 @NgModule({
-  imports: [],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    ReactiveFormsModule
+  ],
   declarations: [...COMPONENTS, ...DIRECTIVES, ...PIPES],
   exports: [
     CommonModule,

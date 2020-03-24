@@ -1,0 +1,23 @@
+<div [formGroup]="form" [className]="className">
+  <mat-form-field appearance="outline" [hideRequiredMarker]="required">
+    <mat-label>{{ label | titlecase }}</mat-label>
+    <span matPrefix *ngIf="matIconPrefix">
+        <mat-icon>{{ matIconPrefix }}</mat-icon></span>
+    <mat-select
+      [value]="value"
+      [placeholder]="placeholder"
+      [formControlName]="controlName"
+      [required]="required">
+
+      <mat-option *ngFor="let opt of dataOptions"
+        [value]="opt._id">
+
+        <img *ngIf="opt.imageSrc"
+          [src]="opt.imageSrc"
+          alt="Image"
+          width="25" height="25" />
+        {{ opt.anchorValue }}</mat-option>
+    </mat-select>
+    <mat-error>{{ errorMessage }}</mat-error>
+  </mat-form-field>
+</div>

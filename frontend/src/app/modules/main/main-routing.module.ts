@@ -5,6 +5,7 @@ import { MainComponent } from './main.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent, children: [
+      { path: '', redirectTo: 'inmunization', pathMatch: 'full' },
       { path: 'inmunization',
         loadChildren: () => import('./inmunization/inmunization.module')
                               .then(mod => mod.InmunizationModule)
@@ -12,7 +13,7 @@ const routes: Routes = [
       { path: 'temperature',
         loadChildren: () => import('./temperature/temperature.module')
                               .then(mod => mod.TemperatureModule)
-      }
+      },
     ]
   }
 ];
