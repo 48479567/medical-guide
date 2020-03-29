@@ -1,6 +1,9 @@
 # Medical Guide
 
- [Angular](https://angular.io/)![alt text](./assets-git/angular.svg) | [NestJS](https://nestjs.com/)![alt text](./assets-git/nestjs.svg) | [Angular Material](https://material.angular.io/)![alt text](./assets-git/angular-material.svg) | [Ionic](https://ionicframework.com/)![alt text](./assets-git/ionic.svg)
+ [Angular](https://angular.io/)![alt text](./assets-git/angular.svg) | 
+ [NestJS](https://nestjs.com/)![alt text](./assets-git/nestjs.svg) | 
+ [Angular Material](https://material.angular.io/)![alt text](./assets-git/angular-material.svg) | 
+ [Ionic](https://ionicframework.com/)![alt text](./assets-git/ionic.svg)
 
 
 ### Include:
