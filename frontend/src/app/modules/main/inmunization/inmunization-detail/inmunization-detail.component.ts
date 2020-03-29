@@ -22,21 +22,4 @@ export class InmunizationDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  private getInmunizationBySelector(indexInmunization: number): void {
-    const localInmunization = this.inmunizationService.getSelectedInmunization();
-
-    if (localInmunization) {
-      this.inmunization = localInmunization;
-    } else if (this.inmunizationService.getInmunizations().length) {
-      this.inmunization = this.inmunizationService.getInmunizations()[indexInmunization];
-    } else {
-      this.inmunizationHttpService.getInmunizations().subscribe(
-        (inmunizations: IInmunization[]) => {
-          console.log(inmunizations);
-          this.inmunization = inmunizations[indexInmunization];
-        }
-      );
-    }
-  }
-
 }

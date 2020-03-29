@@ -2,22 +2,21 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InmunizationComponent } from './inmunization.component';
 import { InmunizationListComponent } from './inmunization-list/inmunization-list.component';
-import { InmunizationDetailComponent } from './inmunization-detail/inmunization-detail.component';
-import { InmunizationCreateComponent } from './inmunization-create/inmunization-create.component';
+import { InmunizationFormComponent } from './inmunization-form/inmunization-form.component';
+import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
 
-const routes: Routes = [
+const inmunizationRoutes: Routes = [
   { path: '', component: InmunizationComponent, children: [
       { path: '', redirectTo: 'inmunization-list', pathMatch: 'full' },
       { path: 'inmunization-list', component: InmunizationListComponent },
-      { path: 'inmunization-detail/:id', component: InmunizationDetailComponent },
-      { path: 'inmunization-create', component: InmunizationCreateComponent },
-    ]
+      { path: 'inmunization-form', component: InmunizationFormComponent },
+    ], canActivate: [AuthGuard]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(inmunizationRoutes)],
   exports: [RouterModule]
 })
 export class InmunizationRoutingModule { }

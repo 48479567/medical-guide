@@ -5,7 +5,7 @@ import { IDataSchemaOption } from '../../../../../shared/models';
 @Component({
   selector: 'app-select-control',
   templateUrl: './select.component.html',
-  styleUrls: ['./select.component.scss']
+  styleUrls: ['./select.component.sass']
 })
 
 export class SelectControlComponent implements OnInit {
@@ -24,6 +24,5 @@ export class SelectControlComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.dataOptions);
   }
 }

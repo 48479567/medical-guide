@@ -28,4 +28,15 @@ export class InmunizationService {
     this.selectedInmunization = externalInmunization;
   }
 
+  public addInmunization(newInmunization: IInmunization): void {
+    this.inmunizations.push(newInmunization);
+  }
+
+  public editInmunization(inmunizationToEdit: IInmunization): void {
+    const indexInmunizationToEdit = this.inmunizations.findIndex((inmunization: IInmunization) => {
+      return inmunization._id === inmunizationToEdit._id;
+    });
+    this.inmunizations[indexInmunizationToEdit] = inmunizationToEdit;
+  }
+
 }

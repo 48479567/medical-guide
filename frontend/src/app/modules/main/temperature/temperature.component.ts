@@ -9,7 +9,7 @@ import { IContainerChildLink, IChildLink } from '../../../shared/models/route.mo
 export class TemperatureComponent implements OnInit, IContainerChildLink {
   public childLinks: IChildLink[] = [
     { title: 'Temperature Links', path: '/main/temperature', icon: 'event' },
-    { title: 'Temperature Update', path: '/main/inmunization/inmunization-create', icon: 'system_update' },
+    { title: 'Temperature Update', path: '/main/inmunization/inmunization-form', icon: 'system_update' },
   ];
 
   ngOnInit(): void {

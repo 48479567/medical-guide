@@ -8,10 +8,14 @@ import { IContainerChildLink, IChildLink } from '../../../shared/models/route.mo
 })
 export class InmunizationComponent implements OnInit, IContainerChildLink {
   public childLinks: IChildLink[] = [
-    { title: 'Inmunization List', path: '/main/inmunization/inmunization-list', icon: 'view_list' },
+    {
+      title: 'Inmunization List',
+      path: '/main/inmunization/inmunization-list',
+      icon: 'view_list'
+    },
     {
       title: 'Inmunization Create',
-      path: '/main/inmunization/inmunization-create',
+      path: '/main/inmunization/inmunization-form',
       icon: 'add_box'
     },
   ];

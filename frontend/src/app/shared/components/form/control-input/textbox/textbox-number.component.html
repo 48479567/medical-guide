@@ -6,6 +6,7 @@
       <mat-icon>{{ matIconPrefix }}</mat-icon></span>
     <button
       *ngIf="matIconButtonPrefix"
+      type="button"
       mat-button matPrefix mat-icon-button aria-label="prefix"
       (click)="onClickButtonPrefix()">
       <mat-icon>{{ matIconButtonPrefix }}</mat-icon>
@@ -26,6 +27,7 @@
     <button
       *ngIf="matIconButtonSuffix"
       mat-button matSuffix mat-icon-button aria-label="suffix"
+      type="button"
       (click)="onClickButtonSuffix()">
       <mat-icon>{{ matIconButtonSuffix }}</mat-icon>
     </button>

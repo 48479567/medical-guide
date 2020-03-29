@@ -6,7 +6,7 @@
         routerLinkActive="link-active">Inmunization</a>
       <a mat-button [routerLink]="'/main/temperature'"
         routerLinkActive="link-active">Temperature</a>
-      <a mat-button routerLink="/main/auth" class="right">
+      <a mat-button (click)="logOut()" class="right">
         <mat-icon>logout</mat-icon>
         Logout
       </a>

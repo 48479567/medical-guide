@@ -4,7 +4,7 @@
       <mat-list-item *ngFor="let inmunization of inmunizations$ | async; index as i"
         mat-button
         [class.selected-inmunization]="i === indexSelectedInmunization"
-        (click)="goToInmunizationDetail(inmunization, i)">
+        (click)="viewInmunizationDetail(inmunization, i)">
         <mat-icon 
           [style.color]="colorService.getColorHex(inmunization.group)"
           >healing</mat-icon>
@@ -14,5 +14,11 @@
   </div>
   <app-inmunization-detail
     *ngIf="selectedInmunization"
-    [inmunization]="selectedInmunization"></app-inmunization-detail>
+    [inmunization]="selectedInmunization">
+    <button mat-icon-button
+          class="btn-create"
+          (click)="goEditInmunization()">
+          <mat-icon>create</mat-icon>
+        </button>
+  </app-inmunization-detail>
 </div>

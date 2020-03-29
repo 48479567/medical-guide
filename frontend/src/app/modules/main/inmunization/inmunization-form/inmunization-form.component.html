@@ -1,11 +1,11 @@
-<h2>Create Inmunization</h2>
+<h2>{{ title }}</h2>
 
-<form [formGroup]="inmunizationForm"
+<form *ngIf="inmunizationForm" [formGroup]="inmunizationForm"
   (ngSubmit)="submitInmunization()">
-  <mat-form-field appearance="outline" class="w-10">
+  <mat-form-field appearance="outline" class="w-10" color="primary">
     <mat-label>Selector</mat-label>
     <input  type="text" matInput
-      formControlName="selector" required maxlength="4"/>
+      formControlName="selector" required maxlength="4" />
   </mat-form-field>
   <mat-form-field appearance="outline" class="w-90">
     <mat-label>Title</mat-label>
@@ -127,21 +127,35 @@
       [formGroup]="inmunizationForm">
     </app-form-array>
   </div>
-  <div formGroupName="administration" class="mat-elevation-z2">
+  <div formArrayName="administration" 
+    class="array-object-container mat-elevation-z2">
     <h3>Administration</h3>
-    <mat-form-field appearance="outline">
-      <mat-label>Subtitle</mat-label>
-      <input type="text" matInput 
-        formControlName="subtitle" required />
-    </mat-form-field>
-    <div class="fx-cc">
-      <h4>List of Administration</h4>
-      <app-form-array 
-        [formArray]="fs.getArrCtrl('list', fs.getGrpCtrl('administration'))" 
-        formArrayName="list"
-        [canAdd]="true" 
-        [formGroup]="fs.getGrpCtrl('administration')"></app-form-array>
+    <div *ngFor="let ctrl of administration.controls; index as i"
+      class="content-array-control">
+      <button mat-icon-button (click)="deleteGroupControl(administration, i)">
+        <mat-icon>clear</mat-icon>
+      </button>
+      <div [formGroupName]="i" class="mat-elevation-z4">
+        <h4>Administration Subtitle</h4>
+        <mat-form-field appearance="outline">
+          <mat-label>Subtitle</mat-label>
+          <input type="text" matInput 
+            formControlName="subtitle" required />
+        </mat-form-field>
+        <div class="fx-cc">
+          <h4>List of Administration</h4>
+          <app-form-array 
+            [formArray]="fs.getArrCtrl('list', ctrl)" 
+            formArrayName="list" 
+            [canAdd]="true"
+            [formGroup]="ctrl">
+          </app-form-array>
+        </div>
+      </div>
     </div>
+    <button type="button" mat-raised-button color="accent"
+    (click)="fs.addGroupControl(administration, groupSideEffects())"
+    >Add Administration</button>
   </div>
   <div formArrayName="sideEffects" 
     class="array-object-container mat-elevation-z2">
@@ -188,7 +202,7 @@
     <input type="text" matInput 
       formControlName="simultaneousUse" required />
   </mat-form-field>
-  <div class="fx">
+  <div class="fx-cc">
     <button
       type="button"
       mat-raised-button 
@@ -200,7 +214,7 @@
     </button>
     <button type="submit" mat-raised-button 
       color="primary"
-      [disabled]="!inmunizationForm.valid"
-      >Create Inmunization</button>
+      [disabled]="!inmunizationForm.valid || inmunizationForm.pristine"
+      >{{ title }}</button>
   </div>
 </form>

@@ -26,7 +26,7 @@ export interface IInmunization {
   scheme: ISchemeInmunization[];
   dose: string[];
   conservation: string[];
-  administration: IAdministrationInmunization;
+  administration: IAdministrationInmunization[];
   sideEffects: IAdministrationInmunization[];
   contraindications: string[];
   simultaneousUse: string;

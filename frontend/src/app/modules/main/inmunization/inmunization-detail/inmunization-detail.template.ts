@@ -3,6 +3,7 @@ export const inmunizationDetailTemplate = `
   <div class="container">
     <div class="header">
       <h3>{{ inmunization.title }}</h3>
+      <ng-content></ng-content>
     </div>
     <div class="content">
       <h4>Type:</h4>
@@ -38,9 +39,9 @@ export const inmunizationDetailTemplate = `
       <h4>Conservation:</h4>
       <p *ngFor="let csrv of inmunization.conservation">{{ csrv }}</p>
       <h4>Administration:</h4>
-      <div class="group">
-        <h5>{{ inmunization.administration.subtitle }}</h5>
-        <p *ngFor="let list of inmunization.administration.list">{{ list }}</p>
+      <div class="group" *ngFor="let adm of inmunization.administration">
+        <h5>{{ adm.subtitle }}</h5>
+        <p *ngFor="let list of adm.list">{{ list }}</p>
       </div>
       <h4>Side Effects:</h4>
       <div class="group" *ngFor="let sch of inmunization.sideEffects">

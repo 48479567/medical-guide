@@ -6,7 +6,6 @@ import { InmunizationHttpService } from '../../../../core/http/inmunization.http
 import { IInmunization } from '../../../../shared/models';
 import { ColorService } from '../../../../core/services/styles/color.service';
 import { MatDialog } from '@angular/material/dialog';
-import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-inmunization-list',
@@ -39,13 +38,16 @@ export class InmunizationListComponent implements OnInit {
     return this.inmunizationHttpService.getInmunizations();
   }
 
-  public goToInmunizationDetail(
+  public viewInmunizationDetail(
     templateInmunization: IInmunization,
     indexTemplateInmunization: number): void {
 
-    // this.inmunizationService.setSelectedInmunization(templateInmunization);
-    // this.router.navigate(['/main/inmunization/inmunization-detail', indexTemplateInmunization]);
     this.indexSelectedInmunization = indexTemplateInmunization;
     this.selectedInmunization = templateInmunization;
+  }
+
+  public goEditInmunization(): void {
+      this.inmunizationService.setSelectedInmunization(this.selectedInmunization);
+      this.router.navigate(['/main/inmunization/inmunization-form']);
   }
 }

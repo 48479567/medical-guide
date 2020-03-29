@@ -20,19 +20,47 @@ export class InmunizationHttpService {
   public getInmunizations(): Observable<IInmunization[]> {
     return this.http.get<IInmunization[]>(`${API_URI}/inmunization`).pipe(
       tap((inmunizations: IInmunization[]) => {
-        console.log('http - Inmunization');
-        this.loggerService.log(`Get ${inmunizations.length} inmunizations !!`, 'bg-primary');
         this.inmunizationService.setInmunizations(inmunizations);
+        return this.loggerService.log(`Get ${inmunizations.length} inmunizations !!`, 'bg-primary');
       }),
       catchError(
         this.handleErrorService.handleError<IInmunization[]>(
-          `Get Inmunization(s)`, [], this.loggerService)
+          'Get Inmunization(s)', [], this.loggerService)
       )
     );
   }
 
   public postInmunization(newInmunization: IInmunization): Observable<IInmunization> {
-    return this.http.post<IInmunization>(`${API_URI}/inmunization`, newInmunization);
+    return this.http.post<IInmunization>(`${API_URI}/inmunization`, newInmunization).pipe(
+      tap((inmunization: IInmunization) => {
+        this.inmunizationService.addInmunization(inmunization);
+        return this.loggerService.log(`
+          Created Inmunization with selector: ${inmunization.selector}`,
+          'bg-success');
+      }),
+      catchError(
+        this.handleErrorService.handleError<IInmunization>(
+          `Create Inmunization`, null, this.loggerService)
+      )
+    );
+  }
+
+  public editInmunization(
+    entryInmunization: IInmunization,
+    idEntryInmunization: string): Observable<any> {
+
+    return this.http.put<any>(`${API_URI}/inmunization/${idEntryInmunization}`, entryInmunization).pipe(
+      tap(
+        (inmunization: IInmunization) => {
+          this.inmunizationService.editInmunization(entryInmunization);
+          return this.loggerService.log(`
+            Edit Inmunization with selector: ${inmunization.selector}`);
+        }),
+      catchError(
+        this.handleErrorService.handleError<any>(
+          'Update Inmunization', entryInmunization, this.loggerService)
+      )
+    );
   }
 
 }

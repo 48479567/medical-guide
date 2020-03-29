@@ -41,7 +41,7 @@ export class FormService {
     formArray.push(new FormControl('', Validators.required));
   }
 
-  public addGroupControl( formArray: FormArray, childGroup: FormGroup): void {
+  public addGroupControl(formArray: FormArray, childGroup: FormGroup): void {
     formArray.push(childGroup);
   }
 

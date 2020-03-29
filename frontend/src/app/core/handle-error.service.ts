@@ -10,7 +10,7 @@ export class HandleErrorService {
       return (error: any): Observable<T> => {
         console.error(error);
         if (logger) {
-          logger.log(`${operation} Failed: ${error.message}, 'bg-danger'`);
+          logger.log(`${operation} Failed: ${error.error || error.message}`, 'bg-danger');
         }
         return of(result as T);
       };

@@ -1,4 +1,5 @@
-import { ClassProvider,
+import {
+  ClassProvider,
   FactoryProvider,
   InjectionToken,
   PLATFORM_ID
