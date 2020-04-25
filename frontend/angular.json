@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass",
+          "style": "scss",
           "skipTests": true
         },
         "@schematics/angular:class": {
@@ -39,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/medical-guide-frontend",
+            "outputPath": "../../deployment/medical-guide/src/static/medical-guide-frontend",           
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,7 +50,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -114,7 +115,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss"
             ],
             "scripts": []
           }

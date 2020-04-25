@@ -1,17 +1,9 @@
-.main-content-visible 
-  display: flex
-  height: 100vh
-  flex-direction: column
-  justify-content: center
-  align-items: center
-
 mat-card 
   display: flex
   justify-content: space-around
   align-content: center
   flex-direction: column
-  width: 450px
-  height: 50%
+  padding: 30px
 
 mat-card-header 
   display: flex
@@ -26,6 +18,9 @@ app-textbox-control
   display: flex
   justify-content: center
 
+.user-field .space-between app-textbox-control
+  padding-bottom: 10px
+
 .space-around 
   display: flex
   justify-content: space-around
@@ -36,6 +31,7 @@ app-textbox-control
   justify-content: space-between
   flex-direction: row
   margin-bottom: 15px
+  flex-flow: row wrap
 
   app-select-control
     width: 160px

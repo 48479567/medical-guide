@@ -9,15 +9,30 @@ import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 export class TemperatureListComponent implements OnInit {
   public calendarData = {
     '29/2/2020': {
-      title: 'Event 1', subtitle: 'Subtitel Event1', description: 'Description Event 1', image: 'https://i.imgur.com/fkkT89j.png' },
+      title: 'Event 1', subtitle: 'Subtitle Event1',
+      status: 'warning',
+      description: 'Description Event 1',
+      image: 'https://i.imgur.com/fkkT89j.png' },
     '2/3/2020': {
-      title: 'Event 2', subtitle: 'Subtitel Event2', description: 'Description Event 2', image: 'https://i.imgur.com/kShC7IZ.png' },
+      title: 'Event 2', subtitle: 'Subtitle Event2',
+      status: 'danger',
+      description: 'Description Event 2',
+      image: 'https://i.imgur.com/kShC7IZ.png' },
     '3/3/2020': {
-      title: 'Event 3', subtitle: 'Subtitel Event3', description: 'Description Event 3', image: 'https://i.imgur.com/D8rC1Pt.png' },
+      title: 'Event 3', subtitle: 'Subtitle Event3',
+      status: 'success',
+      description: 'Description Event 3',
+      image: 'https://i.imgur.com/D8rC1Pt.png' },
     '4/3/2020': {
-      title: 'Event 4', subtitle: 'Subtitel Event4', description: 'Description Event 4', image: 'https://i.imgur.com/kShC7IZ.png' },
+      title: 'Event 4', subtitle: 'Subtitle Event4',
+      status: 'danger',
+      description: 'Description Event 4',
+      image: 'https://i.imgur.com/kShC7IZ.png' },
     '5/3/2020': {
-      title: 'Event 5', subtitle: 'Subtitel Event5', description: 'Description Event 5', image: 'https://i.imgur.com/D8rC1Pt.png' },
+      title: 'Event 5', subtitle: 'Subtitle Event5',
+      status: 'success',
+      description: 'Description Event 5',
+      image: 'https://i.imgur.com/D8rC1Pt.png' },
   };
 
   public selectedDate = new Date().toLocaleDateString();
@@ -33,14 +48,12 @@ export class TemperatureListComponent implements OnInit {
   }
 
   public dateClass = (d: Date): MatCalendarCellCssClasses => {
-    let classData = '';
-    for (const cData in this.calendarData) {
-      if (d.toLocaleDateString() === cData) {
-        classData = 'date-with-event';
-        break;
-      }
+    const currentDateCalendar = this.calendarData[ d.toLocaleDateString() ];
+
+    if (!currentDateCalendar) {
+      return '';
     }
-    return classData;
+    return `date-${currentDateCalendar.status}`;
   }
 
   public onSelectChange(localeDate: string): void {

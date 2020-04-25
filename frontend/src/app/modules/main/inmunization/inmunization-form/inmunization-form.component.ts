@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -22,7 +22,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./inmunization-form.component.sass'],
   providers: [FormService]
 })
-export class InmunizationFormComponent implements OnInit {
+export class InmunizationFormComponent implements OnInit, OnDestroy {
   title = 'Create Inmunization';
   idExternalInmunization: string;
 
@@ -79,6 +79,14 @@ export class InmunizationFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => this.getForm(), 0);
+  }
+
+  ngOnDestroy(): void {
+    this.inmunizationService.setSelectedInmunization(null);
+  }
+
+  public getForm(): void {
     const externalInmunization = this.inmunizationService.getSelectedInmunization();
     if (externalInmunization) {
       this.title = 'Edit Inmunization';
@@ -218,7 +226,6 @@ export class InmunizationFormComponent implements OnInit {
   }
 
   private performAfterSubmit(): Promise<boolean> {
-    this.inmunizationService.setSelectedInmunization(null);
     return this.router.navigateByUrl('/main/inmunization/inmunization-list');
   }
 

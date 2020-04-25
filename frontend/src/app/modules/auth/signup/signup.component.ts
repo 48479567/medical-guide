@@ -3,7 +3,7 @@ import { FormGroup, Validators as vl, FormBuilder, FormControl } from '@angular/
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { IDataSchemaOption } from '../../../shared/models';
-import { ISignUpRequest, ISignInResponse } from '../../../shared/models/user.model';
+import { ISignUpRequest } from '../../../shared/models/user.model';
 import { AuthHttpService } from 'src/app/core/http/auth.http.service';
 
 @Component({
@@ -102,19 +102,6 @@ export class SignupComponent implements OnInit {
     } as ISignUpRequest;
 
     this.authHttp.signUp(signUpRequest).subscribe();
-  }
-
-  public log() {
-    const formValue = this.form.value;
-
-    const signUpRequest = {
-      name: `${formValue.firstname} ${formValue.lastname}`,
-      password: formValue.password,
-      role: formValue.role,
-      username: formValue.username
-    } as ISignUpRequest;
-
-    console.log(signUpRequest);
   }
 
 }

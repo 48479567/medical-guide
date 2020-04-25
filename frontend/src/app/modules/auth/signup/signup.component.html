@@ -1,94 +1,91 @@
-<div class="main-content-visible">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Create your Account</mat-card-title>
-    </mat-card-header>
-    <form [formGroup]="form" (ngSubmit)="signUp()">
-    <mat-card-content>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Create your Account</mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="form" (ngSubmit)="signUp()">
+  <mat-card-content>
+      <div class="space-between">
+        <app-textbox-control
+          controlName="firstname"
+          label="fist name"
+          [form]="form"
+          type="text"
+          [required]="true"
+          errorMessage="First Name Required."
+        ></app-textbox-control>
+        <app-textbox-control
+          controlName="lastname"
+          label="last name"
+          [form]="form"
+          type="text"
+          [required]="true"
+          errorMessage="Last Name Required."
+        ></app-textbox-control>
+      </div>
+      <div class="user-field">
         <div class="space-between">
           <app-textbox-control
-            controlName="firstname"
-            label="fist name"
+            className="signid"
+            controlName="username"
+            label="username"
             [form]="form"
             type="text"
             [required]="true"
-            errorMessage="First Name Required."
+            [maxLength]="8"
+            matSuffix="@medicalguide.com"
+            matHintStart="Your can use letters, numbers & periods. Use 8 or more characters"
+            errorMessage="Invalid Username, use 8 or more characters."
+          ></app-textbox-control>
+          <app-select-control
+            className="complementary"
+            label="role"
+            [required]="true"
+            [form]="form"
+            controlName="role"
+            errorMessage="Role is Required"
+            [dataOptions]="roleData"
+            matIconPrefix="supervised_user_circle"
+          ></app-select-control>
+        </div>
+      </div>
+      <div>
+        <div class="space-between">
+          <app-textbox-control
+            controlName="password"
+            label="password"
+            [type]="passwordData.type"
+            [form]="form"
+            [required]="true"
+            [errorMessage]="passwordData.messageError"
+            [matHintEnd]="password.value.length+' / 8'"
           ></app-textbox-control>
           <app-textbox-control
-            controlName="lastname"
-            label="last name"
+            controlName="confirm"
+            label="confirm"
+            [type]="passwordData.type"
             [form]="form"
-            type="text"
             [required]="true"
-            errorMessage="Last Name Required."
+            [errorMessage]="confirmMessageError"
+            [matHintEnd]="confirm.value.length+' / 8'"
           ></app-textbox-control>
-        </div>
-        <div>
-          <div class="space-between">
-            <app-textbox-control
-              className="signid"
-              controlName="username"
-              label="username"
-              [form]="form"
-              type="text"
-              [required]="true"
-              [maxLength]="8"
-              matSuffix="@medicalguide.com"
-              matHintStart="Your can use letters, numbers & periods. Use 8 or more characters"
-              errorMessage="Invalid Username, use 8 or more characters."
-            ></app-textbox-control>
-            <app-select-control
-              className="complementary"
-              label="role"
-              [required]="true"
-              [form]="form"
-              controlName="role"
-              errorMessage="Role is Required"
-              [dataOptions]="roleData"
-              matIconPrefix="supervised_user_circle"
-            ></app-select-control>
+          <div>
+            <button type="button" mat-icon-button>
+              <mat-icon (click)="changePasswordData()"
+                >{{ passwordData.icon }}</mat-icon>
+            </button>
           </div>
         </div>
-        <div>
-          <div class="space-between">
-            <app-textbox-control
-              controlName="password"
-              label="password"
-              [type]="passwordData.type"
-              [form]="form"
-              [required]="true"
-              [errorMessage]="passwordData.messageError"
-              [matHintEnd]="password.value.length+' / 8'"
-            ></app-textbox-control>
-            <app-textbox-control
-              controlName="confirm"
-              label="confirm"
-              [type]="passwordData.type"
-              [form]="form"
-              [required]="true"
-              [errorMessage]="confirmMessageError"
-              [matHintEnd]="confirm.value.length+' / 8'"
-            ></app-textbox-control>
-            <div>
-              <button type="button" mat-icon-button>
-                <mat-icon (click)="changePasswordData()"
-                  >{{ passwordData.icon }}</mat-icon>
-              </button>
-            </div>
-          </div>
-        </div>
-      </mat-card-content>
-      <mat-card-actions class="space-around">
-        <button mat-button type="button" routerLink="../">Sign in instead</button>
-        <button
-          type="submit"
-          mat-raised-button
-          color="accent"
-          [disabled]="!form.valid || password.value !== confirm.value"
-          >SIGN UP</button>
-    
-      </mat-card-actions>
-      </form>
-  </mat-card>
-  <button mat-button (click)="log()">Log</button>
-</div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="space-around">
+      <button mat-button type="button" routerLink="../">Sign in instead</button>
+      <button
+        type="submit"
+        mat-raised-button
+        color="accent"
+        [disabled]="!form.valid || password.value !== confirm.value"
+        >SIGN UP</button>
+  
+    </mat-card-actions>
+    </form>
+</mat-card>

@@ -1,0 +1,376 @@
+@import '~@angular/material/theming';
+
+$font-family-montserrat: Montserrat, "Helvetica Neue", sans-serif;
+$primary: #1976d2;
+$light: #ffffff;
+$success: #4bb543;
+$accent: #00ff00;
+$warn: #f44336;
+$semi-dark: rgba(0, 0, 0, 0.54);
+$almost-dark: rgba(0, 0, 0, 0.87);
+$little-dark: rgba(0, 0, 0, 0.12);
+$dark: #000000;
+
+$dark014: rgba(0, 0, 0, 0.14);
+$dark020: rgba(0, 0, 0, 0.2);
+$dark026: rgba(0, 0, 0, 0.26);
+$dark038: rgba(0, 0, 0, 0.38);
+
+$custom-typography: mat-typography-config(
+  $font-family: $font-family-montserrat);
+
+@include mat-core($custom-typography);
+
+html {
+  scroll-behavior: smooth;
+}
+  
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: $font-family-montserrat;
+  background: url(https://i.imgur.com/WnvOj0X.jpg);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0 $light;
+  border-radius: 0;
+
+  &:hover {
+    background: #ccc;
+  }
+  
+  &:active {
+    background: #888;
+  }
+}
+
+
+::-webkit-scrollbar-track {
+  background: #666;
+  border: 0 $light;
+  border-radius: 0;
+
+  &:hover {
+    background: #666;
+  }
+
+  &:active {
+    background: #333;
+  }
+}
+
+::-webkit-scrollbar-corner {
+  background: 0 0;
+}
+
+.hdc-flex-row-center, .hdc-flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-chip-list-wrapper {
+  width: 100%;
+}
+
+h3 {
+  font-size: 18px;
+  text-align: center;
+}
+
+h3::after {
+  content: "";
+  display: block;
+  width: 25%;
+  margin: 2px auto 2vh;
+  background-color: $primary;
+  height: 3px;
+}
+
+input[type="number"] {
+  text-align: right;
+}
+
+.content-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: $light;
+  visibility: visible;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+.resuming {
+  margin-top: 60px;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  margin-top: -40px;
+  animation: spinner-ub06eb63b 1s ease infinite;
+}
+
+.main-content-visible {
+  animation: main-content-visible 1s forwards;
+}
+
+@keyframes main-content-visible {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-ub06eb63b {
+  0%, 100% {
+    box-shadow: -13px 20px 0 $primary, 13px 20px 0 rgba(0, 82, 236, 0.2), 13px 46px 0 rgba(0, 82, 236, 0.2), -13px 46px 0 rgba(0, 82, 236, 0.2) 
+  }
+  25% {
+    box-shadow: -13px 20px 0 rgba(0, 82, 236, 0.2), 13px 20px 0 $primary, 13px 46px 0 rgba(0, 82, 236, 0.2), -13px 46px 0 rgba(0, 82, 236, 0.2); 
+  }
+  50% {
+    box-shadow: -13px 20px 0 rgba(0, 82, 236, 0.2), 13px 20px 0 rgba(0, 82, 236, 0.2), 13px 46px 0 $primary, -13px 46px 0 rgba(0, 82, 236, 0.2); 
+  }
+  75% {
+    box-shadow: -13px 20px 0 rgba(0, 82, 236, 0.2), 13px 20px 0 rgba(0, 82, 236, 0.2), 13px 46px 0 rgba(0, 82, 236, 0.2), -13px 46px 0 $primary; 
+  }
+} 
+
+.icon-line {
+  display: flex;
+  align-items: center;
+  word-break: break-all;
+}
+
+.toolbar-filter {
+  background: #ffffff50;
+}
+
+.complete {
+  width: 100% !important;
+  height: 95% !important;
+}
+
+.content-menu-basic {
+  width: 100%;
+  height: 64px;
+  background-color: #262626;
+}
+
+.change-sign-mode {
+  font-size: 13px;
+}
+
+.title-button span {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: $primary;
+} 
+
+h3.title {
+  font-size: 25px;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  text-align: center;
+} 
+
+h3.title::after {
+  content: "";
+  display: block;
+  width: 40%;
+  margin: 2px auto 2vh;
+  background-color: $primary;
+  height: 3px;
+} 
+
+.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: row wrap;
+} 
+
+.social-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.social-link {
+  padding: 0 2px;
+}
+
+.section-jump {
+  position: relative;
+  top: -64px;
+}
+
+@media screen and (max-width: 400px) {
+  .info-title {
+    font-size: 8px;
+  }
+} 
+  
+@media screen and (max-width: 850px) {
+  .section-jump {
+    top: -45px;
+  }
+
+  .complete .container {
+    height: 100%;
+  }
+} 
+
+.main-content {
+  height: calc(100vh - 200px);
+  padding: 5px;
+  margin: 5px;
+  overflow: auto;
+}
+
+.theme-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+} 
+
+.main-content-header {
+  border-top: 5px solid $primary;
+  margin-bottom: 35px;
+  min-height: 350px;
+} 
+
+.header-image {
+  position: absolute;
+  top: 0 ;
+  left: 0 ;
+  right: 0 ;
+  bottom: 0;
+  background-image: url("https://i.imgur.com/WnvOj0X.jpg");
+  width: 110%;
+  height: 50vh;
+  background-size: cover;
+  filter: brightness(35%);
+} 
+
+.header-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding-top: 114px;
+} 
+
+.header-image-content {
+  flex-direction: column;
+  box-sizing: border-box;
+  display: flex;
+  place-content: center;
+  align-items: center;
+  color: $light;
+  z-index: 1;
+} 
+
+.fx-cc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+@mixin calendar-cell-status(
+  $status: "warning", $background-status: #00ff00, $color-status: #000000) {
+
+  .date-#{$status} .mat-calendar-body-cell-content {
+    background-color: $background-status;
+    color: $color-status;
+    opacity: .8;
+
+    &:hover {
+      background-color: $primary !important;
+      opacity: 1;
+      color: $light;
+    }
+  }
+}
+
+@include calendar-cell-status();
+@include calendar-cell-status("success", $success, $light);
+@include calendar-cell-status("danger", $warn, $light);
+
+
+.date-with-danger .mat-calendar-body-cell-content {
+  background-color: $accent;
+  opacity: .8;
+
+  &:hover {
+    background-color: $primary !important;
+    opacity: 1;
+    color: $light;
+  }
+}
+
+.bg-primary {
+  background-color: #2196F3;
+  color: $light;
+}
+
+.bg-danger {
+  background-color: #E91E63;
+  color: $light;
+} 
+
+.bg-secondary {
+  background-color: #F44356;
+  color: $light;
+} 
+
+.bg-success {
+  background-color: #CDDC59;
+  color: $light;
+} 
+
+.bg-warning {
+  background-color: #FFEB2A;
+  color: $light;
+} 
+
+.bg-dark {
+  background-color: #262626;
+  color: $light;
+} 
+
+.right {
+  float: right;
+}

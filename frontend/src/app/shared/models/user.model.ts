@@ -1,3 +1,5 @@
+type roleUser = 'admin' | 'user';
+
 export interface IUserId {
   username: string;
 }
@@ -9,12 +11,12 @@ export interface ISignInRequest extends IUserId {
 export interface ISignInResponse extends ISignInRequest {
   _id?: string;
   name: string;
-  role: 'admin' | 'user';
+  role: roleUser;
 }
 
 export interface ISignUpRequest extends ISignInRequest {
   name: string;
-  role: 'admin' | 'user';
+  role: roleUser;
 }
 
 export interface IUser extends ISignInResponse {

@@ -1,31 +1,29 @@
 <div class="header-image"></div>
-<div class="header-image-wrapper">
-  <div class="content-menu">
-    <div class="main-menu">
-      <a mat-button [routerLink]="'/main/inmunization'"
-        routerLinkActive="link-active">Inmunization</a>
-      <a mat-button [routerLink]="'/main/temperature'"
-        routerLinkActive="link-active">Temperature</a>
-      <a mat-button (click)="logOut()" class="right">
-        <mat-icon>logout</mat-icon>
-        Logout
-      </a>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="child-menu">
-      <a *ngFor="let link of childLinks"
-        mat-button 
-        class="link child-link"
-        [routerLink]="link.path"
-        routerLinkActive="child-link-active"
-        [routerLinkActiveOptions]="{ exact: link.exact }">
-        <mat-icon>{{ link.icon }}</mat-icon>
-        {{ link.title }}
-      </a>
-    </div>
+<div class="content-menu">
+  <div class="main-menu">
+    <a mat-button [routerLink]="'/main/inmunization'"
+      routerLinkActive="link-active">Inmunization</a>
+    <a mat-button [routerLink]="'/main/temperature'"
+      routerLinkActive="link-active">Temperature</a>
+    <a mat-button (click)="logOut()" class="right">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </a>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="child-menu">
+    <a *ngFor="let link of childLinks"
+      mat-button 
+      class="link child-link"
+      [routerLink]="link.path"
+      routerLinkActive="child-link-active"
+      [routerLinkActiveOptions]="{ exact: link.exact }">
+      <mat-icon>{{ link.icon }}</mat-icon>
+      {{ link.title }}
+    </a>
   </div>
 </div>
-<mat-card class="main-content-header">
+<mat-card class="theme-container main-content-header">
   <div class="backgrond"></div>
   <router-outlet (activate)="getChildLinks($event)"></router-outlet>
 </mat-card>
